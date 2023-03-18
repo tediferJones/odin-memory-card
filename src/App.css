@@ -1,1 +1,17 @@
+@font-face {
+  font-family: 'Tickerbit-regular';
+  src: local('Tickerbit-regular'), url(./assets/fonts/Tickerbit-regular.woff2) format('woff2');
+}
 
+body {
+  /* REMOVE THE STYLE TAG FROM ./public/index.html BEFORE DELETING THIS LINE */
+  /* font-family: VT323; */
+  font-family: 'Tickerbit-regular';
+  font-size: 32px;
+}
+
+img {
+  height: 128px;
+}
+
+/* MORE PIXELATED FONTS: https://www.ebaqdesign.com/blog/pixel-fonts */

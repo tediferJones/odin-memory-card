@@ -1,26 +1,32 @@
 import { useState } from 'react';
+import ScoreBoard from './components/scoreBoard.js';
+import MemoryCard from './components/memoryCard.js'
 import './App.css';
 
 function App() {
   // Our theme is gunna be Metroid Zero Mission Items
-  // We need at least two components
-  // one for our score, and high score
-  // second, to hold our 'items', should randomize the order of these objects after each selection
 
-  const [score, setScore] = useState({
-    currentScore: 0,
-    highScore: 0,
-  });
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   const [memoryCard, setMemoryCard] = useState({
-    options: [], // some array of choices
-    used: [], // array of choices that have already been selected
+    // The name of an option must directly correlate to it's image file name
+    options: ['Morph Ball', 'Ball Bomb'],
+    used: [],
   });
+
+  function selectHandler(e) {
+    console.log(e.target.getAttribute('value'));
+  }
 
   // To shuffle an array, use Fisher-Yates algorithm, or Durstenfeld Shuffle algorithm
 
   return (
-    <h1>HELLO WORLD</h1>
+    <div>
+      <h1>HELLO WORLD</h1>
+      <ScoreBoard currentScore={currentScore} highScore={highScore}/>
+      <MemoryCard memoryCard={memoryCard} selectHandler={selectHandler}/>
+    </div>
   );
 }
 
