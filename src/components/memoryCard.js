@@ -5,7 +5,8 @@ function MemoryCard(props) {
 
   const optionCards = props.options.map(option => {
     return (
-      <div onClick={props.selectHandler} 
+      <div className='optionCard'
+      onClick={props.selectHandler} 
       key={uuidv4()} 
       value={option}>
         <img src={require(`../assets/images/${option}.png`)}
@@ -19,8 +20,8 @@ function MemoryCard(props) {
 
   return (
     <div>
-      <h1>MemoryCard</h1>
-      <div>{optionCards}</div>
+      <h1 className='title'>MemoryCard</h1>
+      <div className='gridContainer'>{optionCards}</div>
     </div>
   )
 }

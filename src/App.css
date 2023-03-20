@@ -3,15 +3,106 @@
   src: local('Tickerbit-regular'), url(./assets/fonts/Tickerbit-regular.woff2) format('woff2');
 }
 
+:root {
+  --primaryColor: darkslateblue;
+  --secondaryColor: #5A4DAE;
+  --accentColor: ghostwhite;
+}
+
 body {
-  /* REMOVE THE STYLE TAG FROM ./public/index.html BEFORE DELETING THIS LINE */
-  /* font-family: VT323; */
   font-family: 'Tickerbit-regular';
   font-size: 32px;
+  color: var(--accentColor);
+  background-color: var(--primaryColor);
+  margin: 0;
 }
+
+.scoreBoard {
+  display: flex;
+  justify-content: space-around;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridContainer {
+  /* THIS WORKS BUT LETS TRY A FLEXBOX
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  gap: 1em 1em;
+  */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+
+}
+
+.optionCard {
+  height: 256px;
+  width: 256px;
+
+  padding: 0.5em;
+  border-style: solid;
+  border-width: 0.25em;
+  border-radius: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.5s;
+  text-align: center;
+}
+
+.optionCard:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  background-color: var(--secondaryColor);
+}
+
 
 img {
   height: 128px;
+  width: 128px;
+  padding-bottom: 0.5em;
+}
+
+.footer {
+  background-color: var(--secondaryColor);
+  margin-top: 2em;
+  padding: 1em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accentColor);
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,0,0,0.5);
+  position: fixed;
+  top: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 /* MORE PIXELATED FONTS: https://www.ebaqdesign.com/blog/pixel-fonts */

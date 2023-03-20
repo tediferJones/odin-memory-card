@@ -4,6 +4,7 @@ import MemoryCard from './components/memoryCard.js'
 import './App.css';
 
 function App() {
+  // CURRENTSCORE IS ALWAYS EQUAL TO SELECTED.LENGTH, this var is useless
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(localStorage.getItem('highScore') || 0);
   const [selected, setSelected] = useState([]);
@@ -17,10 +18,10 @@ function App() {
   function selectHandler(e) {
     if (selected.includes(e.target.getAttribute('value'))) {
       // if the value already exists in selected var, you lose, reset the game
+      toggleModal();
       if (currentScore > highScore) {
         setHighScore(currentScore);
         localStorage.setItem('highScore', currentScore);
-        // console.log(`LOCALSTORAGE = ${localStorage.getItem('highScore')}`)
       }
       setCurrentScore(0);
       setSelected([]);
@@ -43,9 +44,12 @@ function App() {
     return result;
   }
 
+  function toggleModal() {
+    document.getElementsByClassName('modal')[0].classList.toggle('hidden');
+  }
+
   return (
     <div>
-      <h1>HELLO WORLD</h1>
       <ScoreBoard
       currentScore={currentScore}
       highScore={highScore}
@@ -54,13 +58,24 @@ function App() {
       options={shuffleArray(options)}
       selectHandler={selectHandler}
       />
+      <div className='footer'>
+        <a href='https://github.com/tediferJones/'
+        >Check out more of my projects
+        </a>
+      </div>
+      {/* MAKE THE BELOW INTO ITS OWN COMPONENT */}
+      <div className='modal hidden'>
+        <button onClick={toggleModal}>BACK TO GAME</button>
+      </div>
     </div>
   );
 }
 
 // TO-DO LIST
 //    - [ DONE ] Use localStorage to save highScore
-//    - Styling, go with a dark theme, our icons tend to be pretty bright
-//    - Use a flexible grid like in this project: https://github.com/tediferJones/odin-library
+//    - Add some kind of indicator for when the game resets, like a pop-up
+//    - [ DONE ] Styling, go with a dark theme, our icons tend to be pretty bright
+//    - Add the word 'icon' to image alt tags, so it doesnt display the same exact text twice when images fail to load
+//    - Remove score var, replace with selected.length
 
 export default App;
