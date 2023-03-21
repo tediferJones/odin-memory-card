@@ -1,7 +1,5 @@
 
 function ScoreBoard(props) {
-  // console.log(props)
-
   return (
     <div className='scoreBoard'>
       <h4>Score: {props.currentScore}</h4>

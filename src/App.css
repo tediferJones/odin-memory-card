@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Tickerbit-regular';
+  font-family: 'Tickerbit-regular', monospace;
   font-size: 32px;
   color: var(--accentColor);
   background-color: var(--primaryColor);
@@ -96,13 +96,49 @@ a {
 .modal {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255,0,0,0.5);
+  background-color: rgba(255, 0, 0, 0.6);
   position: fixed;
   top: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .hidden {
   display: none;
+}
+
+.resetButton {
+  border-style: none;
+  background-color: var(--primaryColor);
+  color: var(--accentColor);
+  padding: 1em;
+  font-size: 64px;
+  font-weight: 700;
+  font-family: 'Tickerbit-regular', monospace;
+
+  border-style: solid;
+  border-width: 0.125em;
+  border-radius: 1em;
+  border-color: var(--accentColor);
+
+  transition: 0.5s;
+}
+
+.resetButton:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  background-color: var(--secondaryColor);
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* MORE PIXELATED FONTS: https://www.ebaqdesign.com/blog/pixel-fonts */

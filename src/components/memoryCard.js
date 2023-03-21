@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
 function MemoryCard(props) {
-  // console.log(props)
-
   const optionCards = props.options.map(option => {
     return (
       <div className='optionCard'
@@ -10,7 +8,7 @@ function MemoryCard(props) {
       key={uuidv4()} 
       value={option}>
         <img src={require(`../assets/images/${option}.png`)}
-        alt={option}
+        alt={`${option} Icon`}
         value={option}
         />
         {option}
